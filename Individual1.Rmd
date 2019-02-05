@@ -1,0 +1,23 @@
+---
+title: "Individual1"
+output: html_document
+---
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+choco
+
+# 1.
+hist(choco$Rating)
+# The histogram seems to follow a bell curve distribution, with most of the rating being close to 3.0. The histogram is slightly skewed right.
+boxplot(choco$Rating)
+# Looking at the boxplot, we can see that there is an outlier with a rating of 5 and a few more outliers with ratings of 2 or lower.
+
+
+# 2.
+library(ggplot2)
+ggplot(data = choco) + 
+  geom_point(mapping = aes(x = Cocoa.Pct, y = Rating), position = "jitter")
+# Looking at the plot, there does not seem to be a significant relation between percent of cocoa and rating.
+```
