@@ -1,0 +1,16 @@
+---
+title: "Individual2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Based on the scatter plot the closer to 70 cocao percentage the more likely to have a rating closer to the median rating of 3.250.
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+plot(choco$Cocoa.Pct, choco$Rating, xlab = 'Cocao Percentage', ylab = 'Rating')
+summary(choco$Rating)
+```
