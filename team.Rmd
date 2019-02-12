@@ -2,12 +2,29 @@
 title: "Team"
 output: html_document
 ---
-
+#Lab 2
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+#1.) Creating a new dataset where the rating does not equal NULL will give us the total number of bars reviewed. We see that the dataset ends at 1852 so 1852 bars were reviewed.  
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+bars_reviewed <- choco[is.null(choco$Rating) != TRUE,]
+tail(bars_reviewed)
+```
 
-
+```{r}
+#2.) First, we created a new dataset which consists of the years in the dataset. Then put it in a table to count each of the years in the vector. Then graphed it using the barplot function. 
+numYears <- choco$Review.Date
+str(numYears)
+table(numYears)
+barplot(table(numYears))
+```
+```{r}
+#3.) Created three datasets each one corresponding to the top countrires. Then created a boxplot consisting of each countries ratings. In order the graph goes USA, France and Canada.
+USA <- choco[choco$Company.Location == "U.S.A.",]
+France <- choco[choco$Company.Location == "France",]
+Canada <- choco[choco$Company.Location == "Canada",]
+boxplot(USA$Rating, France$Rating, Canada$Rating, xlab="Country", ylab="Rating")
 ```
