@@ -28,3 +28,19 @@ France <- choco[choco$Company.Location == "France",]
 Canada <- choco[choco$Company.Location == "Canada",]
 boxplot(USA$Rating, France$Rating, Canada$Rating, xlab="Country", ylab="Rating")
 ```
+
+```{r}
+#4.) Question: "What country or part of the world produced the most beans in this dataset, and what is the average rating for that location?"
+```
+
+```{r}
+#5.) 
+library(plyr)
+count(choco, 'Broad.Bean.Origin')
+#By looking at the output from this count function, we see that the most beans came from Venezuela.
+
+vz <- choco[choco$Broad.Bean.Origin == "Venezuela", ]
+summary(vz)
+
+#Looking at the summary output, the average rating for beans from Venezuela is 3.249
+```
